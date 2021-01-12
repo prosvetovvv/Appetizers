@@ -1,5 +1,5 @@
 //
-//  AccounView.swift
+//  AccountView.swift
 //  Appetizers
 //
 //  Created by Vitaly Prosvetov on 06.01.2021.
@@ -21,7 +21,10 @@ struct AccountView: View {
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
-                    DatePicker("Birthday", selection: $viewModel.user.birthdate, displayedComponents: .date)
+                    DatePicker("Birthday",
+                               selection: $viewModel.user.birthdate,
+                               in: Date().oneHundredTenYearsAgo...Date().eighteenYearsAgo,
+                               displayedComponents: .date)
                     Button {
                         viewModel.saveChanges()
                     } label: {
